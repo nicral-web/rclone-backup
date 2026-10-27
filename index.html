@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rclone-backup</title>
+  <meta name="description" content="A personal backup setup that copies one person's files into their own Google Drive.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>rclone-backup</h1>
+    <p class="lead">A private backup setup used by one person. Once a day it copies files from their own Mac into
+      their own Google Drive, encrypted before they leave the computer.</p>
+
+    <ol class="lane" aria-label="How a backup travels">
+      <li>Owner's Mac<small>files and projects</small></li>
+      <li>restic<small>encrypts and versions</small></li>
+      <li>rclone<small>uploads</small></li>
+      <li>Owner's Google Drive<small>backup folder</small></li>
+    </ol>
+
+    <h2>Who uses it</h2>
+    <p>Only its owner. It is not offered to anyone else, has no sign-up and no other users.</p>
+
+    <h2>What it can access</h2>
+    <p>The owner's own Google Drive, so it can write new backups to a backup folder and read them back when files
+      need to be restored.</p>
+
+    <p><a href="privacy.html">Privacy policy</a></p>
+
+    <footer>Maintained by <a href="https://github.com/nicral-web">nicral-web</a> on GitHub.</footer>
+  </main>
+</body>
+</html>

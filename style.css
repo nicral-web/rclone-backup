@@ -1,0 +1,104 @@
+:root {
+  --fog: #eef2f5;
+  --ink: #1b2733;
+  --muted: #566778;
+  --rule: #cfd8e0;
+  --steel: #2c6a88;
+  --lane: #dde5ec;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fog: #141b22;
+    --ink: #e3e9ee;
+    --muted: #9aabba;
+    --rule: #2c3844;
+    --steel: #7fb8d4;
+    --lane: #1e2832;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fog);
+  color: var(--ink);
+  font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 4.5rem 1rem 3rem;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 2.25rem 0 0.4rem;
+}
+
+p, ul { margin: 0 0 1rem; max-width: 62ch; }
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.35rem; }
+
+.lead { font-size: 1.25rem; line-height: 1.5; color: var(--ink); }
+.updated { color: var(--muted); font-size: 0.95rem; }
+
+a { color: var(--steel); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--steel); outline-offset: 3px; border-radius: 2px; }
+
+/* The path a backup takes: the one distinctive element on the page. */
+.lane {
+  --notch: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 2.75rem;
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+.lane li {
+  margin: 0;
+  padding: 0.85rem calc(var(--notch) + 0.5rem) 0.85rem calc(var(--notch) + 0.75rem);
+  background: var(--lane);
+  font-weight: 500;
+  line-height: 1.25;
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% 50%, calc(100% - var(--notch)) 100%, 0 100%, var(--notch) 50%);
+}
+.lane li:first-child {
+  padding-left: 0.9rem;
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% 50%, calc(100% - var(--notch)) 100%, 0 100%);
+}
+.lane li:last-child {
+  background: var(--steel);
+  color: var(--fog);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, var(--notch) 50%);
+}
+.lane small { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.85; margin-top: 0.15rem; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 34rem) {
+  main { padding-top: 3rem; }
+  .lane { grid-template-columns: 1fr; gap: 2px; }
+  .lane li, .lane li:first-child, .lane li:last-child { padding-left: 1rem; clip-path: none; }
+}
